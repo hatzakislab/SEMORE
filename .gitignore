@@ -43,3 +43,4 @@ Thumbs.db
 *.key
 *.tif
 *.tiff
+*.pyc
