@@ -8,6 +8,9 @@ from sklearn import neighbors,mixture,preprocessing
 import cv2 as cv
 import sys
 from .Usefull_func import *
+
+OMP_NUM_THREADS=1
+
 # =============================================================================
 class Morphology_fingerprint:
 

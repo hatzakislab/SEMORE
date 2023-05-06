@@ -1,0 +1,14 @@
+name: SEMORE
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pandas
+  - matplotlib
+  - scipy
+  - hdbscan
+  - opencv
+  - scikit-learn
+  - umap-learn
+  - jupyter
