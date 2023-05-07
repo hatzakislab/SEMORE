@@ -5,6 +5,27 @@ from sklearn.neighbors import KernelDensity
 from scipy import stats, spatial
 
 def gen_iso (df_slice:pd.DataFrame) -> pd.DataFrame:
+    """
+    Generate a dataframe of simulated isotropic aggregates.
+
+    Parameters
+    ----------
+    df_slice : pd.DataFrame
+        A dataframe with the following columns:
+            'seed': The starting point of the aggregate
+            'start': The starting frame of the aggregate
+            'end': The ending frame of the aggregate
+
+    Returns
+    -------
+    pd.DataFrame
+        A dataframe with the following columns
+            'frame': The frame of the aggregate
+            'x': The x coordinate of the aggregate
+            'y': The y coordinate of the aggregate
+            'label': The label of the aggregate
+            'agg_type': The type of aggregation
+    """
     end_df = pd.DataFrame()
     lab = 0
     for seed,start,end in zip(df_slice['seed'],df_slice['start'],df_slice['end']):
@@ -30,6 +51,33 @@ def gen_iso (df_slice:pd.DataFrame) -> pd.DataFrame:
     return end_df
 
 def gen_rand (df_slice:pd.DataFrame,lam = 10, threshold = np.inf,sigma = 500) -> pd.DataFrame:
+    """
+    Generate a dataframe of simulated random aggregates throguh sterically hinderince.
+
+    Parameters
+    ----------
+    df_slice : pd.DataFrame
+        A dataframe with the following columns:
+            'seed': The starting point of the aggregate
+            'start': The starting frame of the aggregate
+            'end': The ending frame of the aggregate
+    lam : int, optional
+        The lambda value for the poisson distribution used to determine the number of points added at each frame, by default 10
+    threshold : float, optional
+        The maximum distance between points for it to be considered. by default np.inf
+    sigma : int, optional
+        The standard deviation of the normal distribution used to determine the new points, by default 500
+
+    Returns
+    -------
+    pd.DataFrame
+        A dataframe with the following columns
+            'frame': The frame of the aggregate
+            'x': The x coordinate of the aggregate
+            'y': The y coordinate of the aggregate
+            'label': The label of the aggregate
+            'agg_type': The type of aggregation
+    """
     end_df = pd.DataFrame()
     lab = 0
     for seed,start,end in zip(df_slice['seed'],df_slice['start'],df_slice['end']):
@@ -59,6 +107,38 @@ def gen_rand (df_slice:pd.DataFrame,lam = 10, threshold = np.inf,sigma = 500) ->
     return end_df
 
 def gen_fib (df_slice:pd.DataFrame,max_branch = 3,branch_p = 0.005,lambda_dock = 1,dock_min = 0,min_size = 100) -> pd.DataFrame:
+    """
+    Generate a dataframe of simulated fibrils
+
+    Parameters
+    ----------
+    df_slice : pd.DataFrame
+        A dataframe with the following columns:
+            'seed': The starting point of the fibril
+            'start': The starting frame of the fibril
+            'end': The ending frame of the fibril
+    max_branch : int, optional
+        The maximum number of branches a fibril can have, by default 3
+    branch_p : float, optional
+        The probability of a branch occuring at each frame, by default 0.005
+    lambda_dock : int, optional
+        The lambda value for the poisson distribution used to determine the number of docks, by default 1
+    dock_min : int, optional
+        The minimum number of docks, by default 0
+    min_size : int, optional
+        The minimum size of a fibril, by default 100
+
+    Returns
+    -------
+    pd.DataFrame
+        A dataframe with the following columns
+            'frame': The frame of the fibril
+            'x': The x coordinate of the fibril
+            'y': The y coordinate of the fibril
+            'Fibril_label': The label of the fibril
+            'agg_type': The type of aggregation
+            'N_branch': The number of branches
+    """
     n_docks = lambda min_: np.max([min_,np.random.poisson(lam = lambda_dock)]).astype(int)
     return_df = pd.DataFrame()
     a = 0
@@ -154,6 +234,35 @@ def agg_sim (
         fov: int = 40000,
         include_ratio:np.array = np.array([.34, .33,.33]),
         start_seeds: np.array = None ) -> pd.DataFrame:
+    """
+    Simulate aggregation with different types of aggregation
+    Parameters
+    ----------
+    n_agg : int, optional
+        number of aggregation to simulate, by default 1
+    noise_ratio : float, optional
+        ratio of noise to add, by default 0.0
+    max_frame : int, optional 
+        maximum number of frame, by default 400
+    min_duration : int, optional
+        minimum duration of aggregation, by default 100
+    fov : int, optional
+        field of view, by default 40000
+    include_ratio : np.array, optional
+        ratio of different types of aggregation, by default np.array([.34, .33,.33])
+    start_seeds : np.array, optional
+        starting seeds, by default None
+    Returns
+    -------
+    pd.DataFrame
+        Containing the simulated aggregation with columns ['frame','x','y','label','agg_type', 'N_branch']
+            'frame' : frame number
+            'x' : x coordinate
+            'y' : y coordinate
+            'label' : label of the aggregation
+            'agg_type' : type of aggregation
+            'N_branch' : number of branches
+    """
     
     if start_seeds is not None:
         seeds = np.asanyarray(start_seeds)

@@ -13,6 +13,66 @@ OMP_NUM_THREADS=1
 
 # =============================================================================
 class Morphology_fingerprint:
+    """
+    This class is used to calculate the morphology fingerprint of a given data set.
+
+    Attributes
+    ----------
+    data : pandas.DataFrame
+        Data set to be analyzed.
+    start : int or str, optional
+        Number of frames to be used to estimate structure core. The default is 60. If 'mid' is used, the core is estimated using the whole data set.
+    cut_param : int, optional
+        Percentile of the distance distribution to be used as a cutoff. The default is 95.
+
+    Methods
+    All reaturn a dictionary with the calculated values.
+    -------
+    sym_ratio(self)
+        Calculates the symmetry ratio of the data set.
+    spatial(self, n_gauss : int)
+        Calculates the spatial distribution of the data set.
+
+        parameters
+        ----------
+        n_gauss: number of gaussians to be used in the mixture moodel for density distribution.
+
+    circularity(self, sigma : int, percentile : int, bins: int, weight = True) 
+        Calculates the circularity of the data set.
+
+        parameters
+        ----------
+        sigma: sigma of the gaussian filter to be used in the density distribution.
+        percentile: percentile of the distance distribution to be used as a cutoff.
+        bins: number of bins to be used in the density distribution.
+        weight: if True, the density distribution is weighted by the number of connection for each entry.
+
+    correlation(self)
+        Calculates the correlation of the data set.
+
+    all_run(self, spatial : dict , circ: dict)
+
+        Runs all the methods and returns a dictionary with all the calculated values.
+
+        parameters
+        ----------
+        spatial: dictionary with the parameters for the spatial method.
+        circ: dictionary with the parameters for the circularity method.
+
+    plot_features( self, graph : Bool , triangle : Bool, circ : Bool, sym : Bool, title : Str, ax : axis, cmap : plt.cmap, **kwargs)
+        Plots the specified features.
+
+        parameters
+        ----------
+        graph: if True, the graph is plotted.
+        triangle: if True, the triangle is plotted.
+        circ: if True, the circularity is plotted.
+        sym: if True, the symmetry is plotted.
+        title: title of the plot.
+        ax: axis to be used in the plot.
+        cmap: colormap to be used in the plot.
+        **kwargs: additional arguments to be passed to the ax.set() method.
+    """
 
     def __init__(self,data,start = 60,cut_param = 95):
         if cut_param > 1:

@@ -23,8 +23,41 @@ def find_clust(
     init_scale_type:str = 'StandardScaler',
     dens_mode:str = 'strict',
     plot:bool = True,
-    save:bool = True
+    save:bool = False
     ) -> pd.DataFrame:
+    """
+    This function takes a path to a csv file or a folder containing csv files and performs a clustering on the data as described in the paper. The results are saved in a csv file and a plot is made.
+
+    Parameters
+    ----------
+    path : str
+        Path to a csv file or a folder containing csv files.
+    rough_min_points : int, optional
+        Minimum number of points for the rough clustering, by default 100
+    final_min_points : int, optional
+        Minimum number of points for the final clustering, by default 200
+    radius_ratio : float, optional
+        Radius ratio between the final clustering and the rough clustering, by default 1.96
+    investigate_min_sample : int, optional
+        Minimum number of points that a cluster must have to be investigated, by default 50
+    DBSCAN_init : dict, optional
+        Dictionary containing the overwriting-parameters for the DBSCAN algorithm, by default None
+    HDBSCAN_init : dict, optional
+        Dictionary containing the overwriting-parameters for the HDBSCAN algorithm, by default None
+    init_scale_type : str, optional
+        Type of scaler used to scale the data, by default 'StandardScaler'
+    dens_mode : str, optional
+        Determin whether the density_filter is strict (both density and final_min_ponts) or loose (either of them), by default 'strict'
+    plot : bool, optional
+        Determines whether the results are plotted, by default True
+    save : bool or Str, optional
+        Determines whether the results are saved. If Str is passed, this parameter is used to create folders for output at given path. If "auto" folders are created correspondingly to data-path, by default False
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame containing the results of the clustering.
+    """
 
     data = None
     cluster_count = 0
