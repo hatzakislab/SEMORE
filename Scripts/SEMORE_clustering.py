@@ -21,7 +21,7 @@ def find_clust(
     DBSCAN_init:dict = None,
     HDBSCAN_init:dict = None,
     init_scale_type:str = 'StandardScaler',
-    dens_mode:str = 'strict',
+    filter_mode:str = 'strict',
     plot:bool = True,
     save:bool = False
     ) -> pd.DataFrame:
@@ -46,7 +46,7 @@ def find_clust(
         Dictionary containing the overwriting-parameters for the HDBSCAN algorithm, by default None
     init_scale_type : str, optional
         Type of scaler used to scale the data, by default 'StandardScaler'
-    dens_mode : str, optional
+    filter_mode : str, optional
         Determin whether the density_filter is strict (both density and final_min_ponts) or loose (either of them), by default 'strict'
     plot : bool, optional
         Determines whether the results are plotted, by default True
@@ -210,11 +210,11 @@ def find_clust(
                           'ls' : '-',
                           'lw': 2}
             con_col = 'k'
-            if dens_mode == 'loose':
+            if filter_mode == 'loose':
                 checks = dens < multi * min_dens and count < final_min_points
-            elif dens_mode == 'strict':
+            elif filter_mode == 'strict':
                 checks = dens < multi * min_dens or count < final_min_points
-            elif dens_mode == None:
+            elif filter_mode == None:
                 checks = False
 
             if checks:
