@@ -5,32 +5,33 @@ A multi-independent-module pipeline for structure segmentation and disection in 
 ### Citing
 TBA
 ### Dependencies
-  - python=3.8
-  - pandas
-  - matplotlib
-  - scipy
-  - hdbscan
-  - opencv
-  - scikit-learn
-  - umap-learn
+  - python==3.8
+  - pandas==1.5.3
+  - matplotlib==3.7.1
+  - scipy==1.10.1
+  - hdbscan==0.8.29
+  - opencv==4.6.0
+  - scikit-learn==1.2.2
+  - umap-learn==0.5.3
 ### Usage
 #### Installation
+SEMORE is most easily setup in a new conda environment with dependecies and channels found in dependency.yml - Running the bash commands below, which creates the environemnt, downloades and installs packages, takes 9m 35s 
 ```bash
-git clone
+git clone https://github.com/hatzakislab/SEMORE
 cd SEMORE
-conda env create -f environment.yml
+conda env create -f dependency.yml
 conda activate SEMORE
 ```
-SEMORE modules and additional function are contained in the `Scripts` folder.
+SEMORE modules and additional/helpful functions are contained in the `Scripts` folder.
 SEMORE modules are imported as:
 ```python
 from Scripts.SEMORE_clustering import find_clust
 from Scripts.SEMORE_fingerprint import Morphology_fingerprint
 ```
-Thee three test python scripts are provided:
+Three test python scripts are provided:
   - `Data_sim_test.py` - test data generation.
   - `Segmentation_test.py` - test the clustering module on simulated data.
-  - `Fingerprint_test.py` - test the fingerprint modules on the resultet data from Segmentation_test.py.
+  - `Fingerprint_test.py` - test the fingerprint modules on the resulting data from Segmentation_test.py.
 
 ### Contact
 https://www.hatzakislab.com/
