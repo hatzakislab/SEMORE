@@ -421,15 +421,3 @@ class Morphology_fingerprint:
             ax.set_title(str(title))
         
         ax.set(**kwargs)
-        
-#%%
-if __name__ == '__main__':
-    import pandas as pd
-    data = pd.read_csv('/Users/steenbender/Desktop/Master_Thesis/Spherulite project/Output/control/Found_clusters/csv_files/Cluster_17.csv')
-    #fig = plt.figure(figsize=(12,8),dpi = 150)
-    #plt.scatter(data.x,data.y)
-    clust = Sph_features(data)
-    feat = clust.all_run()
-    clust.plot_sphere(graph = False,triangle = False,circ = True,sym = False)
-    #_ = clust.spatial(graph_op = (True,None))
-# %%

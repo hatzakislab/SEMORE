@@ -1,4 +1,3 @@
-#%%
 import os
 import hdbscan
 import numpy as np
@@ -249,4 +248,3 @@ def find_clust(
         if not plot:
                 plt.close()
     return data
-# %%

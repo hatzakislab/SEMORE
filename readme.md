@@ -33,6 +33,9 @@ Three test python scripts are provided:
   - `Segmentation_test.py` - test the clustering module on simulated data.
   - `Fingerprint_test.py` - test the fingerprint modules on the resulting data from Segmentation_test.py.
 
+### For puplication
+For demostration regarding presented data contained in the manuscripts please refer to the `_For_puplicaiton` folder where you will find the required information and scripts.
+
 ### Contact
 https://www.hatzakislab.com/
 
