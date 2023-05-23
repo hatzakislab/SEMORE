@@ -32,9 +32,11 @@ Three test python scripts are provided:
   - `Data_sim_test.py` - test data generation.
   - `Segmentation_test.py` - test the clustering module on simulated data.
   - `Fingerprint_test.py` - test the fingerprint modules on the resulting data from Segmentation_test.py.
+### Own data
+`SEMORE_clustering.find_clust` accepts 2-D localizations containing a temporal element [x,y,t] while `SEMORE_fingerprint.Morphology_fingerprint` accepts localizations [x,y] both static and temporal resolved. The output of the fingerprintg can then freely be used for further analysis.
 
-### For puplication
-For demostration regarding presented data contained in the manuscripts please refer to the `_For_puplicaiton` folder where you will find the required information and scripts.
+### For demostration
+For demostration regarding presented data contained in the manuscript, please refer to the `_For_puplicaiton` folder where you will find the required information and scripts.
 
 ### Contact
 https://www.hatzakislab.com/

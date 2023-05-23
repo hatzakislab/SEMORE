@@ -15,3 +15,5 @@ the following run times are close to:
     - 8 min for insulin segmentation
     - 6 min for insulin fingerprinting
     - 30 sec for NPC fingerprinting
+
+The reuslting output of these scripts are results or plots alike seen in the manuscript.
