@@ -8,7 +8,7 @@ dependencies:
   - matplotlib
   - scipy
   - numpy
-  - hdbscan
+  - hdbscan=0.8.29
   - opencv
   - scikit-learn
   - umap-learn
