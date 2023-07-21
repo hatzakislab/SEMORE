@@ -15,7 +15,11 @@ TBA
   - umap-learn==0.5.3
 ### Usage
 #### Installation
-SEMORE is most easily setup in a new conda environment with dependecies and channels found in dependency.yml - Running the bash commands below, which creates the environemnt, downloades and installs packages, takes 9m 35s 
+SEMORE's installation guide utilize conda environment setup, therefore either miniconda or anaconda is required to follow the bellow installation guide.
+ - Anaconda install guide: [here](https://www.anaconda.com/download)
+ - Mini conda install guide: [here](https://docs.conda.io/en/latest/miniconda.html)
+
+SEMORE is most easily setup in a new conda environment with dependecies and channels found in dependency.yml - Open Terminal / Commando promt at whished location of SEMORE and run the bash commands below, which creates the environemnt, downloades and installs packages, takes 9m 35s 
 ```bash
 git clone https://github.com/hatzakislab/SEMORE
 cd SEMORE
