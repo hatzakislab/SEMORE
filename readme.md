@@ -19,7 +19,7 @@ SEMORE's installation guide utilize conda environment setup, therefore either mi
  - Anaconda install guide: [here](https://www.anaconda.com/download)
  - Mini conda install guide: [here](https://docs.conda.io/en/latest/miniconda.html)
 
-SEMORE is most easily setup in a new conda environment with dependecies and channels found in dependency.yml - Open Terminal / Commando promt at whished location of SEMORE and run the bash commands below, which creates the environemnt, downloades and installs packages, takes 9m 35s 
+SEMORE is most easily setup in a new conda environment with dependecies and channels found in dependency.yml - Open Terminal / Commando promt at whished location of SEMORE and run the bash commands below, which creates the environemnt, downloades and installs packages, takes 9m 35s. Run time for regular csv files of <50MB is expected below 10 minutes. 
 ```bash
 git clone https://github.com/hatzakislab/SEMORE
 cd SEMORE
