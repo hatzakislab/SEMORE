@@ -1,4 +1,4 @@
-name: SEMORE
+name: SEMORE2
 channels:
   - defaults
   - conda-forge
@@ -10,6 +10,6 @@ dependencies:
   - numpy
   - hdbscan=0.8.29
   - opencv
-  - scikit-learn
+  - scikit-learn=1.2.2
   - umap-learn
   - jupyter
