@@ -3,7 +3,13 @@
 A multi-independent-module pipeline for structure segmentation and disection in single molecule localization microscopy (SMLM) data and the extraction of unique morphological fingerprints.
 ![image](_Images/Figure_1.png)
 ### Citing
-TBA
+
+---
+
+Bender, S.W.B., Dreisler, M.W., Zhang, M. et al. SEMORE: SEgmentation and MORphological fingErprinting by machine learning automates super-resolution data analysis. Nat Commun 15, 1763 (2024). https://doi.org/10.1038/s41467-024-46106-0
+
+---
+
 ### Dependencies
   - python==3.8
   - pandas==1.5.3
